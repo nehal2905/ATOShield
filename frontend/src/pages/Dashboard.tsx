@@ -29,7 +29,7 @@ export default function Dashboard() {
     } else if (msg.type === "stats") {
       setStats(msg.payload as Stats);
     }
-  }, []);
+  }, [setStats]);
 
   const { connected } = useWebSocket(onMessage);
 
