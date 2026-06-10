@@ -1,0 +1,10 @@
+- This is a monorepo: ml/ (Python), backend/ (FastAPI), frontend/ (React+TS).
+- The Isolation Forest model produces risk scores. NEVER replace model output
+  with a hardcoded additive heuristic. The heuristic is explainability only.
+- backend/app/core/feature_extractor.py MUST produce identical feature vectors
+  to ml/features.py. There is a test enforcing this — keep it passing.
+- All API inputs validated with Pydantic v2. All dashboard routes require JWT.
+- Never commit secrets. Read config from .env via pydantic-settings.
+- Scoring path must load model once at startup and score in <100ms.
+- Do not invent metrics. Numbers in docs come from ml/artifacts/eval_report.md.
+- Work one phase at a time; finish and test a phase before starting the next.

@@ -1,0 +1,30 @@
+fastapi==0.111.0
+uvicorn[standard]==0.30.1
+pydantic==2.7.4
+pydantic-settings==2.3.4
+sqlalchemy==2.0.31
+asyncpg==0.29.0
+aiosqlite==0.20.0
+alembic==1.13.2
+redis==5.0.7
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.1.3
+python-multipart==0.0.9
+slowapi==0.1.9
+httpx==0.27.0
+
+# Shared ML/runtime deps for the scoring path.
+# NOTE: these MUST be >= the versions used to TRAIN the model (ml/requirements.txt),
+# otherwise unpickling model.pkl fails. Loading a model in the SAME-or-NEWER
+# scikit-learn than it was trained on is the supported direction.
+numpy>=2.1,<3
+pandas>=2.2.3,<3
+scikit-learn>=1.9,<2
+joblib>=1.4
+scipy>=1.13
+shap>=0.46
+
+# Tests
+pytest==8.2.2
+pytest-asyncio==0.23.7
